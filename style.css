@@ -1,0 +1,20 @@
+h1 {
+    background-color: #4ECDC4;
+    color: #F7FFF7;
+    border-bottom: 1px solid black;
+}
+
+.btn {
+    color: #F7FFF7;
+    border: 1px solid black;
+    outline: none;
+    background-color: #4ECDC4;
+    transform: translate(-1px, -1px);
+}
+
+.btn:hover {
+    color: #F7FFF7;
+    background-color: rgb(47, 140, 155);
+    border: 1px solid black;
+    transform: translate(0, 0);
+}
