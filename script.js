@@ -5,15 +5,23 @@ var inputEl = document.querySelector('#input-city');
 var buttonEl = document.querySelector('#submit');
 var historyEl = document.querySelector('#search-history');
 
+var APIkey = "284d1ee896223fdacddf5821349d21f3";
+
+
 function handleFormSubmit() {
-    console.log(inputEl.value)
-    if(!inputEl.value) {
+
+    var userInput = inputEl.value.trim();
+    console.log(userInput)
+    if (!userInput) {
         return
     }
 
-    localStorage.setItem('city', inputEl.value)
+
+    localStorage.setItem('city', userInput)
+    runFetch(userInput)
     inputEl.value = ''
     displayHistory()
+
 }
 
 function displayHistory() {
@@ -25,7 +33,32 @@ function displayHistory() {
 
 
 
+var runFetch = function (city) {
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIkey;
+
+    fetch(queryURL)
+    .then(function (response) {
+      if (response.ok) {
+        console.log(response);
+        response.json().then(function (data) {
+          console.log(data);
+        });
+      } else {
+        alert('Error, City ' + response.statusText);
+      }
+    })
+}
+
+
 // Whatever was entered into the search bar will need to be saved in local storage 
 // and added as a list item underneath the search button
 
 buttonEl.addEventListener('click', handleFormSubmit);
+
+inputEl.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        buttonEl.click();
+    }
+});
