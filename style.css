@@ -30,3 +30,53 @@ h1 {
     background-color: #4ECDC4;
     transform: translate(-1px, -1px);
 }
+
+.today-forecast {
+    border: 2px solid #4ECDC4;
+}
+
+#today-city {
+    font-size: 30px;
+    margin: 10px;
+}
+
+#today-temp, #today-humidity, #today-wind {
+    font-size: 20px;
+    margin: 5px 10px;
+}
+
+#day1, #day2, #day3, #day4, #day5 {
+    margin: 20px 18px;
+    background-color: #4ECDC4;
+    color: #F7FFF7;
+    border: 2px solid #f19c57;
+}
+
+#day1 > p {
+    margin: 10px 15px;
+    font-size: 18px;
+}
+
+
+#day2 > p {
+    margin: 10px 15px;
+    font-size: 18px;
+}
+
+#day3 > p {
+    margin: 10px 15px;
+    font-size: 18px;
+}
+
+#day4 > p {
+    margin: 10px 15px;
+    font-size: 18px;
+}
+
+#day5 > p {
+    margin: 10px 15px;
+    font-size: 18px;
+}
+
+
+

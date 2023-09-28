@@ -30,12 +30,58 @@
             <div id="search-history"></div>
         </div>
 
-        <div id="results-wrapper" class="col-12 col-md-9 border border-primary">
-            <div class="today-forecast"></div>
-            <div class="five-day-forecast"></div>
+        <div id="results-wrapper" class="col-12 col-md-9 ">
+            <div class="today-forecast" hidden>
+                <div id="today-city"></div>
+                <div id="today-temp"></div>
+                <div id="today-humidity"></div>
+                <div id="today-wind"></div>
+            </div>
+            <div class="five-day-forecast row" hidden>
+                <div id="day1" class="col-12 col-md-2">
+                    <p id="day-1"></p>
+                    <p id="icon-1"></p>
+                    <p id="temp-1"></p>
+                    <p id="humid-1"></p>
+                    <p id="wind-1"></p>
+                </div>
+                <div id="day2" class="col-12 col-md-2">
+                    <p id="day-2"></p>
+                    <p id="icon-2"></p>
+                    <p id="temp-2"></p>
+                    <p id="humid-2"></p>
+                    <p id="wind-2"></p>
+                </div>
+                <div id="day3" class="col-12 col-md-2">
+                    <p id="day-3"></p>
+                    <p id="icon-3"></p>
+                    <p id="temp-3"></p>
+                    <p id="humid-3"></p>
+                    <p id="wind-3"></p>
+                </div>
+                <div id="day4" class="col-12 col-md-2">
+                    <p id="day-4"></p>
+                    <p id="icon-4"></p>
+                    <p id="temp-4"></p>
+                    <p id="humid-4"></p>
+                    <p id="wind-4"></p>
+                </div>
+                <div id="day5" class="col-12 col-md-2">
+                    <p id="day-5"></p>
+                    <p id="icon-5"></p>
+                    <p id="temp-5"></p>
+                    <p id="humid-5"></p>
+                    <p id="wind-5"></p>
+                </div>
+            </div>
         </div>
     </main>
     <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
 </body>
 
 
