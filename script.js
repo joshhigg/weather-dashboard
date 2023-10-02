@@ -5,6 +5,7 @@ const elements = {
     todayWrap: document.querySelector('.today-forecast'),
     forecastWrap: document.querySelector('.five-day-forecast'),
     todayCity: document.querySelector('#today-city'),
+    todayIcon: document.querySelector('#today-icon'),
     todayTemp: document.querySelector('#today-temp'),
     todayHumidity: document.querySelector('#today-humidity'),
     todayWind: document.querySelector('#today-wind'),
@@ -51,7 +52,8 @@ const elements = {
         if (response.ok) {
           response.json().then((data) => {
             elements.todayWrap.hidden = false;
-            elements.todayCity.innerHTML = `${data.name} (${dayjs().format('MM/DD/YYYY')}) ${data.weather[0].icon}`;
+            elements.todayCity.innerHTML = `${data.name} (${dayjs().format('MM/DD/YYYY')})`;
+            elements.todayIcon.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png"
             elements.todayTemp.innerHTML = `Temp: ${data.main.temp}°F`;
             elements.todayHumidity.innerHTML = `Humidity: ${data.main.humidity}%`;
             elements.todayWind.innerHTML = `Wind: ${data.wind.speed} MPH`;
@@ -75,9 +77,10 @@ const elements = {
               const forecastDay = dayjs().add(i + 1, 'day').format('MM/DD/YYYY');
               const forecastData = data.list[i + 1];
               const forecastElement = forecastElements[i];
+              console.log(forecastData.weather[0].icon)
   
               forecastElement.day.innerHTML = forecastDay;
-              forecastElement.icon.innerHTML = forecastData.weather[0].icon;
+              forecastElement.icon.src = "https://openweathermap.org/img/wn/" + forecastData.weather[0].icon + ".png";
               forecastElement.temp.innerHTML = `Temp: ${forecastData.main.temp}°F`;
               forecastElement.humid.innerHTML = `Humidity: ${forecastData.main.humidity}%`;
               forecastElement.wind.innerHTML = `Wind: ${forecastData.wind.speed} MPH`;
@@ -88,7 +91,7 @@ const elements = {
         }
       });
   };
-  
+
   elements.buttonEl.addEventListener('click', handleFormSubmit);
   
   elements.inputEl.addEventListener('keypress', function (event) {
