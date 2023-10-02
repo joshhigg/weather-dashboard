@@ -39,9 +39,16 @@ const elements = {
   
   function displayHistory() {
     const historyButton = document.createElement('button');
-    historyButton.textContent = localStorage.getItem('city');
-    elements.historyEl.appendChild(historyButton);
+    const cityName = localStorage.getItem('city')
+    historyButton.textContent = cityName;
     historyButton.className = 'historyButtonEl';
+
+    historyButton.addEventListener('click', () => {
+        fetchToday(cityName);
+        fetchForecast(cityName);
+    });
+
+    elements.historyEl.appendChild(historyButton);
   }
   
   const fetchToday = function (city) {
